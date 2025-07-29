@@ -3,6 +3,7 @@ import Poster from '@/components/Poster';
 import { API_KEY } from "../../../constantes";
 import { Peli } from '../../../constantes';
 import Nav from '@/components/Nav';
+import Image from 'next/image';
 
 export const getStaticProps = (async (context) => {
   const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=TU_API_KEY&language=es-ES&with_genres=10402`.replace("TU_API_KEY", API_KEY || ""))
@@ -25,7 +26,7 @@ export default function Musica({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-screen-xl">
         {pelis.results.map((peli: Peli) => (
           <Poster key={peli.id}>
-            <img src={`https://image.tmdb.org/t/p/w500${peli.poster_path}`} alt={peli.title} width={200} height={300} className="rounded-lg shadow-lg" />
+            <Image src={`https://image.tmdb.org/t/p/w500${peli.poster_path}`} alt={peli.title} width={200} height={300} className="rounded-lg shadow-lg" />
             <h2 className="text-xl font-semibold mt-4">{peli.title}</h2>
             <p className="text-gray-600 mt-2">{peli.overview}</p>
           </Poster>
