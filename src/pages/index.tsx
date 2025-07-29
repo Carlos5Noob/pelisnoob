@@ -26,7 +26,7 @@ export default function Home({
       <Nav />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-screen-xl">
         {pelis.results.map((peli: Peli) => (
-          <Link href={`/pelicula/${peli.id}`}>
+          <Link href={`/pelicula/${peli.id}`} key={peli.id}>
             <Poster key={peli.id}>
               <Image src={`https://image.tmdb.org/t/p/w500${peli.poster_path}`} alt={peli.title} width={200} height={300} className="rounded-lg shadow-lg" />
               <h2 className="text-xl font-semibold mt-4">{peli.title}</h2>
