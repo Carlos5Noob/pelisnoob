@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import { API_KEY, Peli } from "@/constantes";
 import Image from "next/image";
+import Link from "next/link";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const res = await fetch(
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 export default function Pelicula({ movie }: {movie: Peli}) {
   return (
     <div className={` font-sans grid items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 m-auto`}>
-      <a href="/" className="text-blue-300 hover:underline mb-10">Volver al inicio</a>
+      <Link href="/" className="text-blue-300 hover:underline mb-10">Volver al inicio</Link>
       <h1 className="text-3xl sm:text-5xl font-bold text-center mb-8">{movie.title}</h1>
       <Image
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
