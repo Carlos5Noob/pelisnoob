@@ -1,26 +1,26 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { API_KEY } from "./constantes";
-import Nav from "@/components/Nav";
-import { Peli } from "./constantes";
-import Poster from "@/components/Poster";
+import Poster from '@/components/Poster';
+import { API_KEY } from "../../constantes";
+import { Peli } from '../../constantes';
+import Nav from '@/components/Nav';
 
 export const getStaticProps = (async (context) => {
-  const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=TU_API_KEY&language=es-ES&page=1`.replace("TU_API_KEY", API_KEY || ""))
+  const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=TU_API_KEY&language=es-ES&with_genres=53`.replace("TU_API_KEY", API_KEY || ""))
   const pelis = await res.json()
   return { props: { pelis } }
 }) satisfies GetStaticProps<{
   pelis: Peli;
 }>
 
-export default function Home({
+export default function Suspense({
   pelis,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div
-      className={` font-sans grid items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
+      className={`font-sans grid items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
     >
 
-      <h1 className="text-3xl sm:text-5xl font-bold text-center">Películas populares</h1>
+      <h1 className="text-3xl sm:text-5xl font-bold text-center">Películas de Suspense</h1>
       <Nav />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-screen-xl">
         {pelis.results.map((peli: Peli) => (
