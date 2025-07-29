@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { API_KEY } from "./constantes";
+import { API_KEY } from "../constantes";
 import Nav from "@/components/Nav";
-import { Peli } from "./constantes";
+import { Peli } from "../constantes";
 import Poster from "@/components/Poster";
 
 export const getStaticProps = (async (context) => {

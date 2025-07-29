@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { API_KEY } from "../../constantes";
-import { Peli } from '../../constantes';
+import { API_KEY } from "../../../constantes";
+import { Peli } from '../../../constantes';
 import Nav from '@/components/Nav';
 import Poster from '@/components/Poster';
 
