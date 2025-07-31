@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <nav className="flex flex-wrap justify-center gap-4 mb-8">
+    <nav className="flex flex-wrap justify-center gap-4 mb-8 mt-20 bg-gray-800 rounded-full p-4 max-w-400 m-auto">
         <Link href="/" className="text-white hover:underline">Inicio</Link>
         <Link href="/genero/accion" className="text-blue-500 hover:underline">Acción</Link>
         <Link href="/genero/animacion" className="text-blue-500 hover:underline">Animación</Link>

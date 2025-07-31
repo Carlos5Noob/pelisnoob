@@ -3,7 +3,6 @@ import Poster from '@/components/Poster';
 import Link from 'next/link';
 import { API_KEY } from "../../../constantes";
 import { Peli } from '../../../constantes';
-import Nav from '@/components/Nav';
 import Image from 'next/image';
 
 export const getStaticProps = (async (context) => {
@@ -23,7 +22,6 @@ export default function Suspense({
     >
 
       <h1 className="text-3xl sm:text-5xl font-bold text-center">Películas de Suspense</h1>
-      <Nav />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-screen-xl">
         {pelis.results.map((peli: Peli) => (
           <Link href={`/pelicula/${peli.id}`} key={peli.id}>

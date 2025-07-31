@@ -1,7 +1,6 @@
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import { API_KEY } from "../../../constantes";
 import { Peli } from '../../../constantes';
-import Nav from '@/components/Nav';
 import Poster from '@/components/Poster';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,7 +22,6 @@ export default function Accion({
     >
 
       <h1 className="text-3xl sm:text-5xl font-bold text-center">Películas de Acción</h1>
-      <Nav />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-screen-xl">
         {pelis.results.map((peli: Peli) => (
           <Link href={`/pelicula/${peli.id}`} key={peli.id}>
